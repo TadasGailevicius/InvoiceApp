@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceApp.Api", "InvoiceApp.Api\InvoiceApp.Api.csproj", "{E260AF8D-5598-44CA-A807-B29F5457B23C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceApp.Api", "InvoiceApp.Api\InvoiceApp.Api.csproj", "{E260AF8D-5598-44CA-A807-B29F5457B23C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceApp.Domain", "InvoiceApp.Domain\InvoiceApp.Domain.csproj", "{6419B370-0A70-4DAD-ABD4-6A32037799CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceApp.Application", "InvoiceApp.Application\InvoiceApp.Application.csproj", "{4B4FDF9F-E7DA-4BF0-97E5-F664D6076518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E260AF8D-5598-44CA-A807-B29F5457B23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E260AF8D-5598-44CA-A807-B29F5457B23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E260AF8D-5598-44CA-A807-B29F5457B23C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6419B370-0A70-4DAD-ABD4-6A32037799CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6419B370-0A70-4DAD-ABD4-6A32037799CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6419B370-0A70-4DAD-ABD4-6A32037799CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6419B370-0A70-4DAD-ABD4-6A32037799CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4FDF9F-E7DA-4BF0-97E5-F664D6076518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4FDF9F-E7DA-4BF0-97E5-F664D6076518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4FDF9F-E7DA-4BF0-97E5-F664D6076518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4FDF9F-E7DA-4BF0-97E5-F664D6076518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
