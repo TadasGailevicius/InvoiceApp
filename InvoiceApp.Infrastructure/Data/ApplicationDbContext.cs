@@ -1,5 +1,5 @@
 ﻿using IdentityServer4.EntityFramework.Options;
-using InvoiceApp.Api.Models;
+using InvoiceApp.Infrastructure.Models;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InvoiceApp.Api.Data
+namespace InvoiceApp.Infrastructure.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
