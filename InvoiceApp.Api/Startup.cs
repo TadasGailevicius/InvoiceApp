@@ -1,3 +1,5 @@
+using InvoiceApp.Api.Services;
+using InvoiceApp.Application.Common.Interfaces;
 using InvoiceApp.Infrastructure;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -26,6 +28,8 @@ namespace InvoiceApp.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration);
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
