@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceApp.Application\InvoiceApp.Application.csproj" />
+  </ItemGroup>
+
 </Project>
