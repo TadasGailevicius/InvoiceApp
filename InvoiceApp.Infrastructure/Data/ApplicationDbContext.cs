@@ -28,6 +28,8 @@ namespace InvoiceApp.Infrastructure.Data
 
         public DbSet<InvoiceItem> InvoiceItems { get; set; }
 
+        public DbSet<Vat> InvoiceVat { get; set; }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
             foreach (var entry in ChangeTracker.Entries<AuditEntity>())

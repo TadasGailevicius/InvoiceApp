@@ -13,6 +13,10 @@ namespace InvoiceApp.Application.Common.Interfaces
         DbSet<Invoice> Invoices { get; set; }
         DbSet<InvoiceItem> InvoiceItems {get; set;}
 
+        DbSet<Vat> InvoiceVat{ get; set; }
+
+
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
