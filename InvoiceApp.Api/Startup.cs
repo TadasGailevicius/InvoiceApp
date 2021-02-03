@@ -1,5 +1,7 @@
-using InvoiceApp.Api.Data;
-using InvoiceApp.Api.Models;
+using InvoiceApp.Api.Services;
+using InvoiceApp.Application;
+using InvoiceApp.Application.Common.Interfaces;
+using InvoiceApp.Infrastructure;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NSwag;
+using NSwag.Generation.Processors.Security;
+using System.Linq;
 
 namespace InvoiceApp.Api
 {
@@ -26,19 +31,10 @@ namespace InvoiceApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddApplication();
+            services.AddInfrastructure(Configuration);
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
-
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
@@ -46,6 +42,20 @@ namespace InvoiceApp.Api
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
+            });
+
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "InvoiceManagementApp API";
+                configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+                {
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}."
+                });
+
+                configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
         }
 
@@ -56,6 +66,9 @@ namespace InvoiceApp.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
+
             }
             else
             {
