@@ -28,5 +28,11 @@ namespace InvoiceApp.Domain.Entities
         public double Tax { get; set; }
         public double AmountPaid { get; set; }
         public IList<InvoiceItem> InvoiceItems { get; set; }
+
+        public Vat InvoiceVat { get; set; }
+
+        public Company Company { get; set; }
+
+
     }
 }
