@@ -28,6 +28,10 @@ namespace InvoiceApp.Application.Invoices.Commands
         public double Tax { get; set; }
         public double AmountPaid { get; set; }
         public IList<InvoiceItemVm> InvoiceItems { get; set; }
+
+       // public VatVm InvoiceVat { get; set; }
+
+        // public CompanyVm Company { get; set; }
     }
 
 }

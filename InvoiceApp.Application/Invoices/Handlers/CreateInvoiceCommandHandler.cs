@@ -29,6 +29,9 @@ namespace InvoiceApp.Application.Invoices.Handlers
             _context.Invoices.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
+
+            //var element = _context.Invoices.Select(x => {x.Id == x.})
+            //_context.Invoices.Remove()
         }
     }
 }

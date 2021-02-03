@@ -18,6 +18,7 @@ namespace InvoiceApp.Application.Invoices.ViewModels
         public string From { get; set; }
         public string To { get; set; }
         public DateTime Date { get; set; }
+
         public string PaymentTerms { get; set; }
         public DateTime? DueDate { get; set; }
         public DiscountType DiscountType { get; set; }

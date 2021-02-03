@@ -33,5 +33,7 @@ namespace InvoiceApp.Api.Controllers
         {
             return await Mediator.Send(new GetUserInvoicesQuery { User = _currentUserService.UserId });
         }
+
+
     }
 }
